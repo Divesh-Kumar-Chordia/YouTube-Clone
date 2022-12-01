@@ -6,6 +6,7 @@ import { MdOutlineLightMode,MdSettings,MdReport,MdHelpOutline,MdOutlineMovieFilt
 import { BsNewspaper} from "react-icons/bs";
 import { IoGameController } from "react-icons/io5";
 import { FaRegDotCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     flex: 1;/** 1:7 is the ratio  */
@@ -31,8 +32,9 @@ const Logo = styled.div`
     font-size:15px;
     font-weight:bold;
     font-weight:1900;
-
+    color: ${({theme})=>theme.text};
     margin-bottom: 15px;
+  
 
 `
 const Item =styled.div`
@@ -75,10 +77,13 @@ function Menu({darkMode,setDarkMode}) {
   return (
     <Container>
         <Wrapper>
+            <Link to="/" style={{textDecoration:"none"}}>
+
             <Logo>
                 <Img src={img} />
                 YouTube
             </Logo>
+            </Link>
             <Item><AiFillHome/> Home</Item>
             <Item> <MdOutlineExplore/>Explore</Item>
             <Item><MdOutlineSubscriptions/> Subscription</Item>

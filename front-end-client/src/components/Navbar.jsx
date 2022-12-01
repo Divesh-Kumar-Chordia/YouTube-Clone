@@ -7,7 +7,10 @@ top: 0;
 background-color: ${({theme})=>theme.bgLighter};
 height:56px;
 `
-
+const Hr =styled.hr`
+   margin:0px;
+    border: 0.5px solid ${({theme})=>theme.soft};
+`
 const Wrapper = styled.div`
 display:flex;
 align-items:center;
@@ -64,7 +67,9 @@ function Navbar() {
           <BiSearchAlt2/>
           </Search>
           <Button>SIGN IN</Button>
+         
           </Wrapper>
+        <Hr/>
           </Container>
   )
 }

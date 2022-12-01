@@ -15,7 +15,9 @@ const Main =styled.div`
   flex:7;
   background-color: ${({theme})=>theme.bg};
 `
-const Wrapper =styled.div``
+const Wrapper =styled.div`
+padding: 22px 96px;
+`
 
 
 function App() {
@@ -32,7 +34,7 @@ function App() {
 
     <Route path="/" component={Home}>
     <Route index element={<Home />} />
-  <Route path=":id" component={Video}>
+  <Route path="/video/:id" component={Video}>
     <Route index element={<Video />} />
     </Route>
     </Route>
