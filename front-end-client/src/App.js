@@ -6,6 +6,7 @@ import { darkTheme, lightTheme } from "./utils/Theme";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Video from "./pages/Video";
 import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
 
 const Container =styled.div`
   display:flex;
@@ -36,6 +37,12 @@ function App() {
     <Route index element={<Home />} />
   <Route path="/video/:id" component={Video}>
     <Route index element={<Video />} />
+    </Route>
+  {/* /  -> is other cover (inner ones have)*/ }
+  {/* /-> opens -> other open and close , then */ }
+  {/* / closes , as it is a common path */ }
+  <Route path="/SignIn" component={SignIn}>
+    <Route index element={<SignIn/>} />
     </Route>
     </Route>
 </Routes>

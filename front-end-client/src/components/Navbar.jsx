@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BiSearchAlt2 } from "react-icons/bi";
+import { Link } from 'react-router-dom';
+import { MdOutlineAccountCircle } from 'react-icons/md';
 const Container = styled.div`
 position:sticky;
 top: 0;
 background-color: ${({theme})=>theme.bgLighter};
 height:56px;
+color:${({theme})=>theme.text};
 `
 const Hr =styled.hr`
    margin:0px;
@@ -31,8 +34,8 @@ const Search = styled.div`
   align-items:center;
   justify-content:space-between;
   padding:5px 10px;
-  background-color: white;
-  border:1px solid #ccc;
+  background-color:${({theme})=>theme.soft};
+  border:1px solid ${({theme})=>theme.bgLighter};
   border-radius: 30px;
   gap:3px;
 `
@@ -42,6 +45,7 @@ border:none;
 outline: none;
 width:100%;
 background-color:transparent;
+color:${({theme})=>theme.text};
 `
 const Button = styled.button`
 padding:5px;
@@ -66,8 +70,9 @@ function Navbar() {
           <Input/>
           <BiSearchAlt2/>
           </Search>
-          <Button>SIGN IN</Button>
-         
+          <Link to="signin" style={{textDecoration:"none"}}>
+          <Button><MdOutlineAccountCircle />SIGN IN</Button>
+         </Link>
           </Wrapper>
         <Hr/>
           </Container>

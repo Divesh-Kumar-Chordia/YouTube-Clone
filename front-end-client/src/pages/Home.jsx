@@ -14,7 +14,7 @@ const Container = styled.div`
 function Home() {
   return (
     <Container>
-        <Card/>
+    
         <Card/>
         <Card/>
         <Card/>

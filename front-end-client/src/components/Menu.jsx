@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import img from '../img/logo.png'
 import { AiFillHome } from "react-icons/ai";
-import { MdOutlineLightMode,MdSettings,MdReport,MdHelpOutline,MdOutlineMovieFilter,MdOutlineLibraryMusic, MdOutlineExplore,MdOutlineSubscriptions,MdOutlineLibraryAdd,MdOutlineHistory,MdOutlineSportsBasketball} from "react-icons/md";
+import { MdOutlineLightMode,MdSettings,MdReport,MdHelpOutline,MdOutlineMovieFilter,MdOutlineLibraryMusic, MdOutlineExplore,MdOutlineSubscriptions,MdOutlineLibraryAdd,MdOutlineHistory,MdOutlineSportsBasketball, MdOutlineAccountCircle} from "react-icons/md";
 import { BsNewspaper} from "react-icons/bs";
 import { IoGameController } from "react-icons/io5";
 import { FaRegDotCircle } from "react-icons/fa";
@@ -43,8 +43,10 @@ const Item =styled.div`
         gap:5px;
         cursor:pointer;
         padding:5.5px 0px 5.5px 8px;
+    color: ${({theme})=>theme.text};
         &:hover {
     background-color:${({theme})=>theme.soft};
+    
     font-weight: 500;
     border-radius: 15px;
   }
@@ -83,8 +85,10 @@ function Menu({darkMode,setDarkMode}) {
                 <Img src={img} />
                 YouTube
             </Logo>
+                <Item><AiFillHome/> Home</Item>
             </Link>
-            <Item><AiFillHome/> Home</Item>
+           
+            
             <Item> <MdOutlineExplore/>Explore</Item>
             <Item><MdOutlineSubscriptions/> Subscription</Item>
             <Hr/>
@@ -94,7 +98,14 @@ function Menu({darkMode,setDarkMode}) {
             <Login>
             Sign in to like videos, comments, and subscribe.
             </Login>
-                <Button>SIGN IN</Button>
+
+
+            <Link to="signin" style={{textDecoration:"none"}}>
+                <Button><MdOutlineAccountCircle />SIGN IN</Button>
+            </Link>
+            
+
+
             <Hr/>
             <Title>BEST OF YouTube</Title>
             <Item> <MdOutlineLibraryMusic/> Music</Item>
@@ -107,7 +118,7 @@ function Menu({darkMode,setDarkMode}) {
             <Item> <MdSettings/>Settings</Item>
             <Item> <MdReport/>Report</Item>
             <Item><MdHelpOutline/> Help</Item>
-            <Item onClick={()=>setDarkMode(!darkMode)}> <MdOutlineLightMode/>Light Mode</Item>
+            <Item onClick={()=>setDarkMode(!darkMode)}> <MdOutlineLightMode/>{darkMode ? "Light Mode":"Dark Mode"}</Item>
         </Wrapper>
     </Container>
   )
