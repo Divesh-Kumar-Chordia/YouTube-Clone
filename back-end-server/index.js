@@ -5,10 +5,11 @@ import userRoutes from "./routes/users.js";
 import videoRoutes from "./routes/videos.js";
 import commentRoutes from "./routes/comments.js";
 import authRoutes from "./routes/auth.js";
+import cookieParser from "cookie-parser";
 const app = express();
 dotenv.config()
 app.use(express.json());
-
+app.use(cookieParser());
 const connect =()=>{
     mongoose.connect(process.env.MONGO_URL)
     .then(()=>{
@@ -16,7 +17,7 @@ const connect =()=>{
     })
     .catch(err=>console.log("Error connecting to MongoDB \n",err));
 };
-app.use(express.json());//allows passing json data from outside
+//allows passing json data from outside
 app.use("/api/auth",authRoutes);
 app.use("/api/users",userRoutes);
 app.use("/api/videos",videoRoutes);
